@@ -156,18 +156,6 @@
     time: 1000,
   });
 
-  // Skills section
-  $(".skills-content").waypoint(
-    function () {
-      $(".progress .progress-bar").each(function () {
-        $(this).css("width", $(this).attr("aria-valuenow") + "%");
-      });
-    },
-    {
-      offset: "80%",
-    }
-  );
-
   // Init AOS
   function aos_init() {
     AOS.init({
@@ -221,19 +209,109 @@
 // Skills buttom
 
 let switche = true;
-let boton = document.querySelector(".switch-button__label");
-let hardSkills = document.querySelector(".hard-skills");
-let softSkills = document.querySelector(".soft-skills");
-let barraProgreso = document.getElementsByClassName("progress-bar");
-
-boton.addEventListener("click", () => {
-  if (switche) {
-    hardSkills.style.display = "none";
-    softSkills.style.display = "flex";
-    switche = false;
-  } else {
-    hardSkills.style.display = "flex";
-    softSkills.style.display = "none";
-    switche = true;
+const $boton = document.querySelector(".switch-button__label"),
+ $hardSkills = document.querySelector(".hard-skills"),
+ $softSkills = document.querySelector(".soft-skills"),
+ $html5 = document.querySelector(".html5"),
+ $css3 = document.querySelector(".css3"),
+ $bootstrap = document.querySelector(".bootstrap"),
+ $js = document.querySelector(".js"),
+ $php = document.querySelector(".php"),
+ $jquery = document.querySelector(".jquery"),
+ $wp = document.querySelector(".wp"),
+ $git = document.querySelector(".git"),
+ $github = document.querySelector(".github-skills"),
+ $skill = document.querySelector(".skill"),
+ $arrayNewSkillsText = [{new1: document.createElement("p")},{new2: document.createElement("p")},{new3: document.createElement("p")}];
+ $newSkillsText = document.createElement("p");
+window.document.addEventListener("click", (e)=>{
+  console.log(e.target);
+  
+  if(e.target.matches(".switch-button__label")){
+    if (switche) {
+      $hardSkills.style.display = "none";
+      $softSkills.style.display = "flex";
+      switche = false;
+    } else {
+      $hardSkills.style.display = "flex";
+      $softSkills.style.display = "none";
+      switche = true;
+    }
   }
+
+  if(e.target.matches(".botonCV")){
+    alert("Muchas gracias por descargar mi CV. Dentro de poco empezará la descarga.");
+  }
+
+  
 });
+
+
+
+window.document.addEventListener("mouseover", (e) =>{
+  console.log(e.target);
+
+  if(document.getElementById("skills-text") != null) {
+    return document.getElementById("skills-text").remove();
+}
+
+  if(e.target.matches(".htmlimg")){
+  $newSkillsText.innerHTML = "HTML5";
+  $newSkillsText.setAttribute("id","skills-text");
+  $html5.insertAdjacentElement("afterend",$newSkillsText);
+  } 
+  
+  if(e.target.matches(".bootstrapimg")){
+    $newSkillsText.innerHTML = "Bootstrap";
+    $newSkillsText.setAttribute("id","skills-text");
+    $bootstrap.insertAdjacentElement("afterend",$newSkillsText);
+    } 
+  
+    if(e.target.matches(".cssimg")){
+      $newSkillsText.innerHTML = "CSS3";
+      $newSkillsText.setAttribute("id","skills-text");
+      $css3.insertAdjacentElement("afterend",$newSkillsText);
+      } 
+     if(e.target.matches(".jsimg")){
+      $newSkillsText.innerHTML = "Javascript";
+      $newSkillsText.setAttribute("id","skills-text");
+      $js.insertAdjacentElement("afterend",$newSkillsText);
+      } 
+      if(e.target.matches(".phpimg")){
+        $newSkillsText.innerHTML = "PHP";
+        $newSkillsText.setAttribute("id","skills-text");
+        $php.insertAdjacentElement("afterend",$newSkillsText);
+        } 
+      if(e.target.matches(".jqueryimg")){
+          $newSkillsText.innerHTML = "Jquery";
+          $newSkillsText.setAttribute("id","skills-text");
+          $jquery.insertAdjacentElement("afterend",$newSkillsText);
+          } 
+      if(e.target.matches(".wpimg")){
+            $newSkillsText.innerHTML = "Wordpress";
+            $newSkillsText.setAttribute("id","skills-text");
+            $wp.insertAdjacentElement("afterend",$newSkillsText);
+            } 
+      if(e.target.matches(".gitimg")){
+              $newSkillsText.innerHTML = "GIT";
+              $newSkillsText.setAttribute("id","skills-text");
+              $git.insertAdjacentElement("afterend",$newSkillsText);
+              } 
+      if(e.target.matches(".githubimg")){
+                $newSkillsText.innerHTML = "Github";
+                $newSkillsText.setAttribute("id","skills-text");
+                $github.insertAdjacentElement("afterend",$newSkillsText);
+                } 
+
+
+  
+    
+
+          
+});
+
+/*$newSkillsText.innerHTML = "Html";
+$newSkillsText.classList.add("skills-text");
+$skillsIMG.insertAdjacentElement("beforeend",$newSkillsText);*/
+
+
